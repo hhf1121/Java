@@ -97,7 +97,7 @@ import designModel.Source;
 import designModel.Sourceable;
 import designModel.Targetable;
 
-public class HelloWorld {
+public class JavaMain {
 	
 	/**
 	 * 成员属性和内部类
@@ -139,7 +139,7 @@ public class HelloWorld {
 	        int hp=5000;
 	        public void checkIfVictory(){
 	            if(hp==5000){
-	            	HelloWorld.method1();
+					JavaMain.method1();
 	                //静态内部类不能直接访问外部类的对象属性，但能访问类属性
 	                System.out.println(sname + " win this game");
 	            }
@@ -278,7 +278,7 @@ public class HelloWorld {
 	
 	//验证内部类
 	static void method8(){
-		HelloWorld garen = new HelloWorld();
+		JavaMain garen = new JavaMain();
 	        garen.name = "盖伦";
 	        // 实例化内部类
 	        // BattleScore对象只有在一个英雄对象存在的时候才有意义
@@ -291,7 +291,7 @@ public class HelloWorld {
 	//验证静态内部类
 	static void method9(){
 		//实例化静态内部类
-        HelloWorld.EnemyCrystal crystal = new HelloWorld.EnemyCrystal();
+		JavaMain.EnemyCrystal crystal = new JavaMain.EnemyCrystal();
         crystal.checkIfVictory();
 	}
 	
@@ -881,7 +881,7 @@ public class HelloWorld {
 	@JDBCConfig(ip = "127.0.0.1", database = "books", encoding = "UTF-8", loginName = "root", password = "feixiang")
 	static void method34() throws ClassNotFoundException, SQLException {
 		// 获取HelloWorld类下的所有方法,并找到某个特定方法
-		Method[] methods = HelloWorld.class.getDeclaredMethods();
+		Method[] methods = JavaMain.class.getDeclaredMethods();
 		Method method = null;
 		for (Method f : methods) {
 			if (f.getName().equals("method34")) {
@@ -993,7 +993,7 @@ public class HelloWorld {
 	
 	//多线程       	  实现：子线程运行10次，主线程运行5次。交替执行
 	static void method40() {
-		final HelloWorld h=new HelloWorld();
+		final JavaMain h=new JavaMain();
 		//子线程
 		new Thread(new Runnable() {
 			
