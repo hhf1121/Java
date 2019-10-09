@@ -1203,9 +1203,6 @@ public class JavaMain {
 	final static int a=1;
 	//main方法
 	public static void main(String[] args) throws Exception {
-//		method26(1,2);
-//		System.out.println(method36());
-//		method39();
 		method47();
     }
 	
