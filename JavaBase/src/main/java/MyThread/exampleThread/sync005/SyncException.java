@@ -17,10 +17,11 @@ public class SyncException {
 					Integer.parseInt("a");
 //					throw new RuntimeException();
 				}
-			} catch (InterruptedException e) {// 抛出此异常之后，可中断线程
+			} catch (InterruptedException e) {// 抛出此异常之后，可中断线程.     其余的异常捕获不能中断线程
 				e.printStackTrace();
 				//处理一些业务逻辑
 				//....
+				System.out.println("---------------");
 			}
 		}
 	}

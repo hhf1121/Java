@@ -8,8 +8,8 @@ package MyThread.exampleThread.sync006;
 public class StringLock {
 
 	public void method() {
-		//new String("字符串常量")
-		synchronized (new String("字符串常量")) {
+		//new String("字符串常量")//用 new 锁不住
+		synchronized ("字符串常量") {
 			try {
 				while(true){
 					System.out.println("当前线程 : "  + Thread.currentThread().getName() + "开始");
