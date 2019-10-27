@@ -1,4 +1,4 @@
-//package test;
+//package MasterWorker;
 //
 //import static org.junit.Assert.assertEquals;
 //

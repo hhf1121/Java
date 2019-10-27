@@ -1,4 +1,4 @@
-package MyThread.exampleThread.test;
+package MyThread.exampleThread.MasterWorker;
 
 public class Task {
 	private int id ;

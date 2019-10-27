@@ -415,13 +415,13 @@ public class JavaMain {
 	
 	// 输出流
 	static void method15() throws IOException {
-		File f = new File("F:/test/环境变量1.txt");
-		File ft=new File("F:/test/环境变量1.txt".substring(0, "F:/test/环境变量1.txt".indexOf("环")));
+		File f = new File("F:/MasterWorker/环境变量1.txt");
+		File ft=new File("F:/MasterWorker/环境变量1.txt".substring(0, "F:/MasterWorker/环境变量1.txt".indexOf("环")));
 		if(!ft.exists()){
 			ft.mkdirs();
 		}
 		FileOutputStream fs = new FileOutputStream(f,true);
-		byte[] b = "新建的文件，输入文字：test".getBytes();
+		byte[] b = "新建的文件，输入文字：MasterWorker".getBytes();
 		fs.write(b);
 		fs.close();
 		System.out.println("写入成功...");

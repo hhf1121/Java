@@ -1,4 +1,4 @@
-package MyThread.exampleThread.test;
+package MyThread.exampleThread.MasterWorker;
 
 import java.util.HashMap;
 import java.util.Map;

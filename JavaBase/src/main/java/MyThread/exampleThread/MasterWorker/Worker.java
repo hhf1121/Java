@@ -1,4 +1,4 @@
-package MyThread.exampleThread.test;
+package MyThread.exampleThread.MasterWorker;
 
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
