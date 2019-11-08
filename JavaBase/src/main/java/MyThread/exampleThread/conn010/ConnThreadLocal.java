@@ -27,6 +27,7 @@ public class ConnThreadLocal {
 			public void run() {
 				try {
 					Thread.sleep(1000);
+					ct.setTh("李四");
 					ct.getTh();
 				} catch (InterruptedException e) {
 					e.printStackTrace();
