@@ -34,8 +34,8 @@ public class WangBa implements Runnable {
         try{  
             System.out.println("网吧开始营业");  
             WangBa siyu = new WangBa();
-            siyu.shangji("路人甲", "123", 1);
-            siyu.shangji("路人乙", "234", 10);
+            siyu.shangji("路人甲", "123", 10);
+            siyu.shangji("路人乙", "234", 1);
             siyu.shangji("路人丙", "345", 5);
             Thread shangwang = new Thread(siyu);  
             shangwang.start();  

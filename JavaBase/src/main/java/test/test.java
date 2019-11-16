@@ -1,36 +1,22 @@
 package test;
 
-public class test implements  Runnable{
-    static volatile String i="123";
+public class test  {
 
-//    Object o=new Object();
 
     public static void main(String[] args) throws InterruptedException {
-       Thread t=new Thread(new test());
-       t.start();
-//       Thread.sleep(100);
-       getI(i);
-    }
-
-    public   void setI(String i){
-        this.i=i;
-        try {
-            Thread.sleep(3000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        String str=null;
+        for (int i = 0; i < 3; i++) {
+            if(null==str){
+                str +=i;// null0
+            }else{
+                str +=","+i;// null0,1,2
+            }
         }
-        System.out.println(this.i);
+        System.out.println(str);
+        String a=null;
+        System.out.println(a+23);
     }
 
 
-   public  static void getI(String i){
 
-        System.out.println(i);
-    }
-
-
-    @Override
-    public void run() {
-        setI("321");
-    }
 }
