@@ -34,7 +34,45 @@ class MyClassLoader extends ClassLoader{
             throw new ClassNotFoundException();
         }
     }
+
+
+    /**
+     *
+     *
+    * 重写类加载方法，实现自己的加载逻辑，不委派给双亲加载
+     * * @param name
+     * * @param resolve
+     * * @return
+     * * @throws ClassNotFoundException
+     * */
+    protected Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+        synchronized (getClassLoadingLock(name)) {
+            // First, check if the class has already been loaded
+            Class<?> c = findLoadedClass(name);
+            if (c == null) {
+                // If still not found, then invoke findClass in order
+                // to find the class.
+                long t1 = System.nanoTime();
+                //非自定义的类还是走双亲委派加载   Prohibited package name: java.lang
+                //比如：Object类还用java.lang包的。
+                if (!name.startsWith("ParentsClass.User")){
+                    c = this.getParent().loadClass(name);
+                }else
+                    {
+                    c = findClass(name);
+                }
+                // this is the defining class loader; record the stats
+                sun.misc.PerfCounter.getFindClassTime().addElapsedTimeFrom(t1);
+                sun.misc.PerfCounter.getFindClasses().increment();
+            }
+            if (resolve) {
+                resolveClass(c);
+            }
+            return c;
+        }
+    }
 }
+
 
 
 
@@ -44,7 +82,7 @@ public class NoParentsClass {
         //初始化自定义类加载器，会先初始化父类ClassLoader，其中会把自定义类加载器的父加载 器设置为应用程序类加载器AppClassLoader
         MyClassLoader classLoader = new MyClassLoader("D:/test");
         //D盘创建 目录，将User类的复制类User.class丢入该目录(D:test/ParentsClass/)
-        Class clazz = classLoader.loadClass("ParentsClass.User");
+        Class clazz = classLoader.loadClass("ParentsClass.User1");
         Object obj = clazz.newInstance();
         Method method = clazz.getDeclaredMethod("toSay", null);
         method.invoke(obj, null);

@@ -2,6 +2,11 @@ package suanfa;
 
 import java.util.Scanner;
 
+/**
+ * 判断某个数在不在N个数里
+ * 思路：用数组的下标来区分、
+ * 散列算法 k - v
+ */
 public class suanfa1 {
 
     private static int length;
