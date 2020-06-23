@@ -82,7 +82,7 @@ public class NoParentsClass {
         //初始化自定义类加载器，会先初始化父类ClassLoader，其中会把自定义类加载器的父加载 器设置为应用程序类加载器AppClassLoader
         MyClassLoader classLoader = new MyClassLoader("D:/test");
         //D盘创建 目录，将User类的复制类User.class丢入该目录(D:test/ParentsClass/)
-        Class clazz = classLoader.loadClass("ParentsClass.User1");
+        Class clazz = classLoader.loadClass("ParentsClass.User");
         Object obj = clazz.newInstance();
         Method method = clazz.getDeclaredMethod("toSay", null);
         method.invoke(obj, null);

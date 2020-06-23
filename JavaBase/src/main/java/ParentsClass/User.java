@@ -2,7 +2,7 @@ package ParentsClass;
 
 import java.io.Serializable;
 
-public class User1 extends Object {
+public class User extends Object {
 
     private Long id;
     private String name;
