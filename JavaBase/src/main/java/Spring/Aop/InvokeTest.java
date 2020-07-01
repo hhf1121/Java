@@ -12,11 +12,11 @@ import java.util.List;
 
 public class InvokeTest {
 
-    volatile List<String>  lists= Lists.newArrayList();
+    static volatile List<Integer>  lists= Lists.newArrayList();
     @Before
     public void Before(){
-        for (int i = 0; i < 100; i++) {
-            lists.add(""+i);
+        for (int i = 0; i < 5; i++) {
+            lists.add(i);
         }
     }
 
@@ -49,9 +49,43 @@ public class InvokeTest {
         new Thread(() -> {
 //            ArrayList<String> list = Lists.newArrayList("A","B","C");
 //            lists.addAll(list);
-            lists.remove("1");
+            lists.remove(1);
         }).start();
         Thread.sleep(Integer.MAX_VALUE);
+    }
+
+
+    @Test
+    public void test2(){
+        List s=Lists.newArrayList(1,2,3);
+        getDeptNum(s);
+        System.out.println("list："+s);
+    }
+
+    private List getDeptNum(List<Integer> s) {
+        List list1=Lists.newArrayList();
+        for (int i = 0; i < 100; i++) {
+            if(i%5==0){
+                list1.add(i);
+            }
+        }
+//        this.lists=list1;
+        s=list1;
+        System.out.println(s);
+        return list1;
+    }
+
+
+    @Test
+    public void  test3(){
+        Integer n = 3;
+        System.out.println("Before change, n = " + n);
+        changeData(n);
+        System.out.println("After changeData(n), n = " + n);
+    }
+
+    private void changeData(int n) {
+        n=10;
     }
 
 
